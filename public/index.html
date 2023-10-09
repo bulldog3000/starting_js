@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Калькулятор</title>
+</head>
+<body>
+    <h1>Калькулятор</h1>
+    <p>Введите два числа и выберите операцию:</p>
+
+    <input type="number" id="num1" placeholder="Введите первое число">
+    <input type="number" id="num2" placeholder="Введите второе число">
+
+    <select id="operation">
+        <option value="add">Сложить (+)</option>
+        <option value="subtract">Вычесть (-)</option>
+        <option value="multiply">Умножить (*)</option>
+        <option value="divide">Разделить (/)</option>
+    </select>
+
+    <button onclick="calculate()">Вычислить</button>
+
+    <p id="result">Результат: </p>
+
+    <script>
+        function calculate() {
+            const num1 = parseFloat(document.getElementById("num1").value);
+            const num2 = parseFloat(document.getElementById("num2").value);
+            const operation = document.getElementById("operation").value;
+
+            let result;
+
+            switch (operation) {
+                case "add":
+                    result = num1 + num2;
+                    break;
+                case "subtract":
+                    result = num1 - num2;
+                    break;
+                case "multiply":
+                    result = num1 * num2;
+                    break;
+                case "divide":
+                    if (num2 !== 0) {
+                        result = num1 / num2;
+                    } else {
+                        result = "Ошибка: деление на ноль!";
+                    }
+                    break;
+                default:
+                    result = "Выберите операцию";
+            }
+
+            document.getElementById("result").textContent = Результат: ${result};
+        }
+    </script>
+</body>
+</html>
